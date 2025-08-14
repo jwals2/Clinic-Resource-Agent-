@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clinic Resource Agent</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FDD023;
+            color: #2F2A8A;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #2F2A8A;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        select, input[type="text"], button {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 400px;
+            font-size: 16px;
+        }
+        #results {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #2F2A8A;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Clinic Resource Agent</h1>
+    </header>
+    <div class="container">
+        <label for="resource">Select a Resource:</label>
+        <select id="resource">
+            <option value="DHY 3105">DHY 3105</option>
+            <option value="DHY 3205">DHY 3205</option>
+            <option value="DHY 4105">DHY 4105</option>
+            <option value="DHY 4205">DHY 4205</option>
+            <option value="Clinic Forms">Clinic Forms</option>
+            <option value="Clinic Manual">Clinic Manual</option>
+            <option value="All">All</option>
+        </select>
+        <br>
+        <label for="query">Enter your question:</label>
+        <input type="text" id="query" placeholder="Type your question here...">
+        <br>
+        <button onclick="simulateAIResponse()">Submit</button>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        function simulateAIResponse() {
+            const resource = document.getElementById("resource").value;
+            const query = document.getElementById("query").value;
+            const resultsDiv = document.getElementById("results");
+
+            if (query.trim() === "") {
+                resultsDiv.innerHTML = "<strong>Please enter a question.</strong>";
+                return;
+            }
+
+            const response = `🔍 Searching ${resource} for: "${query}"<br><br><em>(This is a simulated AI response.)</em>`;
+            resultsDiv.innerHTML = response;
+        }
+    </script>
+</body>
+</html>
